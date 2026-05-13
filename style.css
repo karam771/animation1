@@ -169,3 +169,20 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 [data-animate="fade-left"]{transform:translateX(30px)}
 [data-animate="pop"]{transform:scale(0.8)}
 [data-animate].animated{opacity:1;transform:translate(0) scale(1)}
+
+/* ======= OVERLAYS ======= */
+.image-overlay-text {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: #fff;
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    font-weight: 500;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+}
