@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Speisekarte — Antalya Pizzeria & Imbiss Barnstorf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+    <nav id="mainNav" class="nav scrolled">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="images/logo.png" alt="Antalya" class="nav-logo-img" /></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="speisekarte.html" class="nav-link" style="opacity:1">Speisekarte</a>
+                <a href="bewertungen.html" class="nav-link">Bewertungen</a>
+                <a href="kontakt.html" class="nav-link">Anfahrt</a>
+                <a href="tel:054428045815" class="nav-link nav-link-cta">Jetzt anrufen</a>
+            </div>
+            <button class="nav-burger" id="navBurger" aria-label="Menü"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" class="mobile-link">Home</a>
+        <a href="speisekarte.html" class="mobile-link">Speisekarte</a>
+        <a href="bewertungen.html" class="mobile-link">Bewertungen</a>
+        <a href="kontakt.html" class="mobile-link">Anfahrt</a>
+        <a href="tel:054428045815" class="mobile-link mobile-link-cta">Jetzt anrufen</a>
+    </div>
+
+    <main class="page-content">
+        <div class="container-lg" style="max-width:48rem;padding-top:6rem">
+            <div class="section-header" style="margin-bottom:2rem">
+                <span class="section-label">Unsere Speisekarte</span>
+                <h1 class="heading-serif-xl">Unsere Speisekarte</h1>
+            </div>
+
+            <div style="text-align:center;margin-bottom:3rem">
+                <p class="text-body" style="max-width:500px;margin:0 auto 2rem">Für jeden Geschmack das Richtige. Frisch zubereitet und heiß serviert.</p>
+                <a href="speisekarte.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">📄 Vollständige Speisekarte öffnen (PDF)</a>
+            </div>
+
+            <div style="text-align:center;margin-top:3rem">
+                <h3 class="heading-serif-lg" style="font-size:1.5rem">Bestellen per Telefon</h3>
+                <p class="text-body">Bestell telefonisch vor und hol direkt ab — schnell & frisch.</p>
+                <a href="tel:054428045815" class="btn btn-primary" style="margin-top:1rem">📞 05442 804581</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"><p>© 2025 Pizzeria Antalya Barnstorf UG · Barnstorf</p></footer>
+    <script>
+        const burger=document.getElementById('navBurger'),mm=document.getElementById('mobileMenu');
+        if(burger&&mm){burger.addEventListener('click',()=>{burger.classList.toggle('active');mm.classList.toggle('open')}); mm.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{burger.classList.remove('active');mm.classList.remove('open')}))}
+    </script>
+</body>
+</html>

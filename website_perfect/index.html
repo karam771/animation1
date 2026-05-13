@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Antalya Pizzeria & Imbiss Barnstorf</title>
+    <meta name="description" content="Seit über 21 Jahren Ihr Lieblingsrestaurant in Barnstorf. Pizza, Kebab, Schnitzel und mehr — frisch zubereitet. Jetzt anrufen: 05442 804581." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <img src="images/logo.png" alt="Antalya Logo" class="preloader-logo-img" />
+            <div class="preloader-bar-track"><div class="preloader-bar-fill" id="preloaderBar"></div></div>
+            <div class="preloader-text" id="preloaderText">Laden... 0%</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="mainNav" class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="images/logo.png" alt="Antalya" class="nav-logo-img" /></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="speisekarte.html" class="nav-link">Speisekarte</a>
+                <a href="bewertungen.html" class="nav-link">Bewertungen</a>
+                <a href="kontakt.html" class="nav-link">Anfahrt</a>
+                <a href="tel:054428045815" class="nav-link nav-link-cta">Jetzt anrufen</a>
+            </div>
+            <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/" class="mobile-link">Home</a>
+        <a href="speisekarte.html" class="mobile-link">Speisekarte</a>
+        <a href="bewertungen.html" class="mobile-link">Bewertungen</a>
+        <a href="kontakt.html" class="mobile-link">Anfahrt</a>
+        <a href="tel:054428045815" class="mobile-link mobile-link-cta">Jetzt anrufen</a>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero" class="hero-section">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-overlay">
+            <div class="hero-content hero-content-intro" id="heroIntro">
+                <p class="hero-tagline">Seit über 21 Jahren in Barnstorf</p>
+                <img src="images/logo.png" alt="Antalya" class="hero-logo-img" />
+                <p class="hero-title-sub-line">Pizzeria & Imbiss</p>
+                <div class="hero-rating">
+                    <div class="stars-wrap">
+                        <div class="stars-bg">★★★★★</div>
+                        <div class="stars-fill" style="width:88%">★★★★★</div>
+                    </div>
+                    <span class="rating-text">4,4 / 5 — über 500 Bewertungen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Echte Liebe zum Handwerk -->
+    <section class="section section-handwerk" style="padding: 8rem 0; background: var(--bg);">
+        <div class="container-lg">
+            <div class="handwerk-centered" data-animate="fade-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <span class="section-label" style="letter-spacing: 0.15em; font-size: 0.75rem;">SEIT ÜBER 21 JAHREN IN BARNSTORF</span>
+                <h2 class="heading-serif-xl" style="font-weight: 400; font-style: normal; margin-top: 1rem; margin-bottom: 2rem;">Echte Liebe zum Handwerk</h2>
+                <p class="text-body" style="font-size: 1.15rem; color: var(--fg-65); margin-bottom: 3.5rem;">Ob eine knusprige Pizza aus dem Ofen, ein frischer Kebab oder ein herzhaftes Schnitzel — bei uns wird alles mit Liebe zubereitet. Warm, authentisch, unkompliziert.</p>
+                <div class="handwerk-stats" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--fg-65);">
+                        <svg style="width: 16px; height: 16px; color: var(--primary);" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        Geliebt von unseren Gästen
+                    </div>
+                    <a href="bewertungen.html" style="background: rgba(188,22,22,0.15); color: var(--primary); padding: 0.5rem 1.25rem; border-radius: 9999px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                        <span>4,4 / 5</span> <span style="opacity: 0.7; color: var(--primary); mix-blend-mode: normal;">Bewertungen lesen &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Interior Image -->
+    <section class="section section-interior" style="padding-top: 0; padding-bottom: 4rem;">
+        <div class="container-lg">
+            <div data-animate="fade-up" style="border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                <img src="images/interior-real.jpg" alt="Pizzeria Antalya Interior" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 70vh;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Bestseller -->
+    <section class="section section-bestseller">
+        <div class="container-lg">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-label">Unsere Empfehlung</span>
+                <h2 class="heading-serif-xl">Bestseller</h2>
+                <p class="text-muted-lg">Das sind die Gerichte, nach denen unsere Gäste immer wieder fragen.</p>
+            </div>
+            <div class="bestseller-grid">
+                <div class="bestseller-card group" data-animate="fade-up">
+                    <div class="bestseller-card-img"><img src="images/dish-doener.jpg" alt="Döner Kebap" /><span class="bestseller-tag">Nr. 1</span></div>
+                    <div class="bestseller-card-body"><h3 class="bestseller-card-title">Döner Kebap</h3><p class="bestseller-card-desc">Zart gegrilltes Fleisch, frisches Gemüse, Tomaten, Zwiebeln und hausgemachte Sauce</p></div>
+                </div>
+                <div class="bestseller-card group" data-animate="fade-up" data-delay="0.08">
+                    <div class="bestseller-card-img"><img src="images/dish-pizza-kebap.jpg" alt="Pizza Kebap Hollandaise" /><span class="bestseller-tag">Spezialität</span></div>
+                    <div class="bestseller-card-body"><h3 class="bestseller-card-title">Pizza Kebap Hollandaise</h3><p class="bestseller-card-desc">Knuspriger Boden mit Kebap-Fleisch, Hollandaise-Sauce, Paprika und Mozzarella</p></div>
+                </div>
+                <div class="bestseller-card group" data-animate="fade-up" data-delay="0.16">
+                    <div class="bestseller-card-img"><img src="images/dish-pizza-margherita.png" alt="Pizza Margherita" /><span class="bestseller-tag">Klassiker</span></div>
+                    <div class="bestseller-card-body"><h3 class="bestseller-card-title">Pizza Margherita</h3><p class="bestseller-card-desc">Tomatensoße, echter Mozzarella, frisches Basilikum — der Klassiker schlechthin</p></div>
+                </div>
+                <div class="bestseller-card group" data-animate="fade-up" data-delay="0.24">
+                    <div class="bestseller-card-img"><img src="images/dish-panini.png" alt="Paninis mit Kebap-Fleisch" /><span class="bestseller-tag">Favorit</span></div>
+                    <div class="bestseller-card-body"><h3 class="bestseller-card-title">Paninis mit Kebap-Fleisch</h3><p class="bestseller-card-desc">Gefüllte Pizzaröllchen mit saftigem Kebap-Fleisch, Salat, Tomaten und Joghurt-Sauce</p></div>
+                </div>
+            </div>
+            <div class="bestseller-phone" data-animate="fade-up"><a href="tel:054428045815" class="phone-link">📞 Fragen? Einfach anrufen: 05442 804581</a></div>
+        </div>
+    </section>
+
+    <!-- SECTION: Frische Zutaten -->
+    <section class="section section-frische">
+        <div class="container-lg">
+            <div class="frische-grid">
+                <div class="frische-img-wrap" data-animate="fade-right"><img src="images/ingredients-real.jpg" alt="Frische Zutaten" class="frische-img" /></div>
+                <div class="frische-text" data-animate="fade-left">
+                    <h2 class="heading-serif-lg text-primary">Frische, die man schmeckt</h2>
+                    <p class="text-body">Jedes Gericht beginnt mit der Auswahl der besten Zutaten. Frisches Gemüse, aromatischer Käse, feinste Gewürze und Teig, der Zeit bekommt, um perfekt zu werden.</p>
+                    <p class="text-body">Wir machen keine Kompromisse, wenn es um Qualität geht — das ist es, was unsere Gäste seit Jahren an uns schätzen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Unsere Vielfalt -->
+    <section class="section section-vielfalt">
+        <div class="container-lg">
+            <div class="section-header" data-animate="fade-up">
+                <h2 class="heading-serif-xl">Unsere Vielfalt</h2>
+                <p class="text-muted-lg">Für jeden Geschmack das Richtige. Frisch zubereitet und heiß serviert.</p>
+            </div>
+            <div class="vielfalt-tags">
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0">Pizza</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.05">Kebab</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.1">Nudelgerichte</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.15">Salate</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.2">Baguette</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.25">Schnitzel</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.3">Pfannengerichte</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.35">Aufläufe</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.4">Paninis</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.45">Calzone</span>
+                <span class="vielfalt-tag" data-animate="pop" data-delay="0.5">Rollos</span>
+            </div>
+            <div class="vielfalt-cta" data-animate="fade-up">
+                <p class="vielfalt-lieferservice">🚗 Lieferservice vorhanden</p>
+                <a href="speisekarte.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">📄 Zur vollständigen Speisekarte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Appetit bekommen? -->
+    <section class="section section-appetit">
+        <div class="container-lg">
+            <div class="appetit-banner" data-animate="fade-up">
+                <img src="images/pizza.png" alt="Knusprige frische Pizza" class="appetit-img" />
+                <div class="appetit-overlay">
+                    <h2 class="heading-serif-hero">Appetit bekommen?</h2>
+                    <div class="appetit-buttons">
+                        <a href="tel:054428045815" class="btn btn-primary btn-lg">Jetzt anrufen</a>
+                        <a href="speisekarte.html" class="btn btn-outline btn-lg">Zur Speisekarte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Reviews -->
+    <section class="section section-reviews">
+        <div class="container-lg">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-label">Bewertungen</span>
+                <h2 class="heading-serif-xl">Das sagen unsere Gäste</h2>
+                <p class="text-muted-lg">Repräsentative Auswahl aus über 500 Kundenbewertungen.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card" data-animate="fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Seit Jahren unser Lieblingsrestaurant in Barnstorf! Die Pizza ist immer frisch und knusprig, das Personal super freundlich. Der Döner ist einfach der beste weit und breit. Sehr zu empfehlen!</p>
+                    <span class="review-author">Thomas K.</span>
+                </div>
+                <div class="review-card" data-animate="fade-up" data-delay="0.08">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Die Pizza Kebap Hollandaise ist unvergleichlich — eine Kombination, die man so nirgendwo anders findet. Schneller Service und sehr faire Preise.</p>
+                    <span class="review-author">Familie Müller</span>
+                </div>
+                <div class="review-card" data-animate="fade-up" data-delay="0.16">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Toller Familienbetrieb! Das Essen ist immer frisch zubereitet und die Portionen sind sehr großzügig. Die Kinder lieben die Paninis. Antalya gehört einfach zu Barnstorf dazu.</p>
+                    <span class="review-author">Anna W.</span>
+                </div>
+                <div class="review-card" data-animate="fade-up" data-delay="0.24">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Sehr gutes Essen, schnelle Lieferung und freundliche Mitarbeiter. Bestelle hier regelmäßig und war noch nie enttäuscht. Das Schnitzel ist wirklich empfehlenswert.</p>
+                    <span class="review-author">Stefan R.</span>
+                </div>
+                <div class="review-card" data-animate="fade-up" data-delay="0.32">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">Schon seit über 10 Jahren Stammkunde. Die Qualität ist konstant hoch und die Preise fair geblieben. Besonders die Nudelgerichte sind absolut top.</p>
+                    <span class="review-author">Maria S.</span>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem" data-animate="fade-up">
+                <a href="bewertungen.html" class="phone-link">→ Bewertungen lesen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-links-row" style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1rem; opacity: 0.7; font-size: 0.9rem;">
+            <a href="impressum.html">Impressum</a>
+            <span>·</span>
+            <a href="impressum.html#datenschutz">Datenschutz</a>
+        </div>
+        <p>© 2025 Pizzeria Antalya Barnstorf UG · Kampstraße 2 · 49406 Barnstorf</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

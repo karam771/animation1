@@ -1,0 +1,6 @@
+.git
+*.md
+server.ps1
+.dockerignore
+Dockerfile
+docker-compose.yml
