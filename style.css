@@ -39,14 +39,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .section-label{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:.75rem}
 .section-header{text-align:center;margin-bottom:4rem}
 
-/* ======= PRELOADER ======= */
-#preloader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
-#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.preloader-inner{text-align:center}
-.preloader-logo-img{height:60px;margin:0 auto 1.5rem}
-.preloader-bar-track{width:200px;height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin:0 auto 1rem}
-.preloader-bar-fill{width:0;height:100%;background:var(--primary);border-radius:2px;transition:width .15s}
-.preloader-text{font-size:.75rem;color:var(--fg-50);letter-spacing:.1em;text-transform:uppercase}
+
 
 /* ======= NAVIGATION ======= */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 0;transition:all .4s}

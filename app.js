@@ -46,37 +46,16 @@
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
 
-    // ============ Preloader ============
-    const preloader = document.getElementById('preloader');
-    const preloaderBar = document.getElementById('preloaderBar');
-    const preloaderText = document.getElementById('preloaderText');
-    const PRELOAD_THRESHOLD = 30; // Nur auf die ersten 30 Frames warten für schnelleren Start
-    let isInitialized = false;
 
-    function updatePreloader() {
-        // Fortschritt basierend auf dem Schwellenwert berechnen (bis max 100%)
-        const pct = Math.min(100, Math.round((loadedCount / PRELOAD_THRESHOLD) * 100));
-        preloaderBar.style.width = pct + '%';
-        preloaderText.textContent = `Laden... ${pct}%`;
-
-        // Ausblenden, sobald der Schwellenwert erreicht ist
-        if (loadedCount >= PRELOAD_THRESHOLD && !isInitialized) {
-            isInitialized = true;
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-                document.body.style.overflow = '';
-                initAnimations();
-            }, 400);
-        }
-    }
 
     // ============ Load Frames ============
     function loadFrames() {
-        document.body.style.overflow = 'hidden';
         for (let i = 1; i <= FRAME_COUNT; i++) {
             const img = new Image();
-            img.onload = () => { loadedCount++; updatePreloader(); };
-            img.onerror = () => { loadedCount++; updatePreloader(); };
+            img.onload = () => { 
+                loadedCount++; 
+                if (i === 1) renderFrame(0); // Ersten Frame sofort zeichnen, sobald da
+            };
             img.src = FRAME_PATH(i);
             images[i - 1] = img;
         }
@@ -204,4 +183,5 @@
 
     // ============ Start ============
     loadFrames();
+    initAnimations();
 })();
