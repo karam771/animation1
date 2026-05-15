@@ -41,22 +41,14 @@
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
         
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Cover-fit mit Zoom-Bremse für Mobile
-        const wScale = canvas.width / img.width;
-        const hScale = canvas.height / img.height;
-        let scale = Math.max(wScale, hScale);
+        // Zurück zum Vollbild-Zoom (Cover-Modus) für maximale Wirkung
+        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
 
-        // Speziell für Mobile (Portrait): Wenn der Zoom zu stark wäre, begrenzen wir ihn
-        if (canvas.height > canvas.width) {
-            scale = Math.min(scale, wScale * 1.6); // Verhindert extremen Ausschnitt
-        }
-
-        // Zentrierung: Wir schieben das Bild auf dem Handy etwas höher, 
-        // damit die Pizza (die meist mittig/unten liegt) perfekt sichtbar ist.
         const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) * 0.5;
+        const y = (canvas.height - img.height * scale) / 2;
         
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
