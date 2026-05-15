@@ -14,7 +14,7 @@
     const FRAME_PATH = (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`;
 
     const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d', { alpha: false }); // Performance-Boost durch Deaktivieren von Alpha
+    const ctx = canvas.getContext('2d');
     const images = [];
     let loadedCount = 0;
     const frameState = { currentIndex: 0 };
@@ -56,7 +56,7 @@
         // Zentrierung: Wir schieben das Bild auf dem Handy etwas höher, 
         // damit die Pizza (die meist mittig/unten liegt) perfekt sichtbar ist.
         const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) * (canvas.height > canvas.width ? 0.4 : 0.5);
+        const y = (canvas.height - img.height * scale) * 0.5;
         
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
