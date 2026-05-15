@@ -25,18 +25,11 @@
         
         // CSS display size
         canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
         
-        // Auf Mobile (Portrait) begrenzen wir die Canvas-Höhe, 
-        // damit bei gebremstem Zoom kein schwarzer Rand entsteht.
-        let displayHeight = window.innerHeight;
-        if (window.innerHeight > window.innerWidth) {
-            displayHeight = Math.min(window.innerHeight, window.innerWidth * 1.3);
-        }
-        canvas.style.height = displayHeight + 'px';
-        
-        // Interne Auflösung
+        // Internal pixel resolution
         canvas.width = window.innerWidth * dpr;
-        canvas.height = displayHeight * dpr;
+        canvas.height = window.innerHeight * dpr;
         
         renderFrame(frameState.currentIndex);
     }
@@ -55,13 +48,15 @@
         const hScale = canvas.height / img.height;
         let scale = Math.max(wScale, hScale);
 
-        // Auf Mobile etwas weniger aggressiv zoomen für mehr Schärfe
-        if (window.innerHeight > window.innerWidth) {
-            scale = Math.min(scale, wScale * 1.8);
+        // Speziell für Mobile (Portrait): Wenn der Zoom zu stark wäre, begrenzen wir ihn
+        if (canvas.height > canvas.width) {
+            scale = Math.min(scale, wScale * 1.6); // Verhindert extremen Ausschnitt
         }
 
+        // Zentrierung: Wir schieben das Bild auf dem Handy etwas höher, 
+        // damit die Pizza (die meist mittig/unten liegt) perfekt sichtbar ist.
         const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) / 2;
+        const y = (canvas.height - img.height * scale) * (canvas.height > canvas.width ? 0.4 : 0.5);
         
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
