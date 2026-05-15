@@ -10,7 +10,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // ============ Frame Sequence Config ============
-    const FRAME_COUNT = 192;
+    const FRAME_COUNT = 124;
     const FRAME_PATH = (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`;
 
     const canvas = document.getElementById('heroCanvas');
