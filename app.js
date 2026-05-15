@@ -50,13 +50,18 @@
     const preloader = document.getElementById('preloader');
     const preloaderBar = document.getElementById('preloaderBar');
     const preloaderText = document.getElementById('preloaderText');
+    const PRELOAD_THRESHOLD = 30; // Nur auf die ersten 30 Frames warten für schnelleren Start
+    let isInitialized = false;
 
     function updatePreloader() {
-        const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
+        // Fortschritt basierend auf dem Schwellenwert berechnen (bis max 100%)
+        const pct = Math.min(100, Math.round((loadedCount / PRELOAD_THRESHOLD) * 100));
         preloaderBar.style.width = pct + '%';
         preloaderText.textContent = `Laden... ${pct}%`;
 
-        if (loadedCount >= FRAME_COUNT) {
+        // Ausblenden, sobald der Schwellenwert erreicht ist
+        if (loadedCount >= PRELOAD_THRESHOLD && !isInitialized) {
+            isInitialized = true;
             setTimeout(() => {
                 preloader.classList.add('hidden');
                 document.body.style.overflow = '';
