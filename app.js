@@ -43,12 +43,20 @@
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Cover-fit
-        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-        
-        // Zentrierung mit leichtem Offset nach oben für Mobile (da Pizza oft mittig/unten ist)
+        // Cover-fit mit Zoom-Bremse für Mobile
+        const wScale = canvas.width / img.width;
+        const hScale = canvas.height / img.height;
+        let scale = Math.max(wScale, hScale);
+
+        // Speziell für Mobile (Portrait): Wenn der Zoom zu stark wäre, begrenzen wir ihn
+        if (canvas.height > canvas.width) {
+            scale = Math.min(scale, wScale * 1.6); // Verhindert extremen Ausschnitt
+        }
+
+        // Zentrierung: Wir schieben das Bild auf dem Handy etwas höher, 
+        // damit die Pizza (die meist mittig/unten liegt) perfekt sichtbar ist.
         const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) / 2;
+        const y = (canvas.height - img.height * scale) * (canvas.height > canvas.width ? 0.4 : 0.5);
         
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
