@@ -44,11 +44,17 @@
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Zurück zum Vollbild-Zoom (Cover-Modus) für maximale Wirkung
-        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+        // Schärfe-Optimierung: Wir begrenzen den Zoom auf Mobile
+        const wScale = canvas.width / img.width;
+        const hScale = canvas.height / img.height;
+        let scale = Math.max(wScale, hScale);
+
+        if (window.innerHeight > window.innerWidth) {
+            scale = Math.min(scale, wScale * 1.6); // Zoom-Bremse für Schärfe
+        }
 
         const x = (canvas.width - img.width * scale) / 2;
-        const y = (canvas.height - img.height * scale) / 2;
+        const y = (canvas.height - img.height * scale) * 0.5;
         
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
