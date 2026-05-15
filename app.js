@@ -14,7 +14,7 @@
     const FRAME_PATH = (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`;
 
     const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false }); // Performance-Boost durch Deaktivieren von Alpha
     const images = [];
     let loadedCount = 0;
     const frameState = { currentIndex: 0 };
@@ -37,12 +37,19 @@
     function renderFrame(index) {
         if (!images[index] || !images[index].complete) return;
         const img = images[index];
+        // Qualitätseinstellungen
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Cover-fit
         const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+        
+        // Zentrierung mit leichtem Offset nach oben für Mobile (da Pizza oft mittig/unten ist)
         const x = (canvas.width - img.width * scale) / 2;
         const y = (canvas.height - img.height * scale) / 2;
+        
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
 
