@@ -10,7 +10,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // ============ Frame Sequence Config ============
-    const IS_MOBILE = window.innerHeight > window.innerWidth;
+    const IS_MOBILE = window.innerWidth <= 768;
     const CONFIG = IS_MOBILE ? {
         count: 127,
         path: (i) => `frames_mobile_transparent/margheritamobilfinal_${String(i).padStart(3, '0')}.webp`
@@ -18,6 +18,8 @@
         count: 124,
         path: (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
     };
+
+    console.log("Animation Config:", CONFIG);
 
     const canvas = document.getElementById('heroCanvas');
     const ctx = canvas.getContext('2d');
