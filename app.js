@@ -12,19 +12,12 @@
     // ============ Frame Sequence Config ============
     const IS_MOBILE = window.innerHeight > window.innerWidth;
     const CONFIG = IS_MOBILE ? {
-        count: 128,
-        path: (i) => `frames_mobile_green/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
+        count: 127,
+        path: (i) => `frames_mobile/margheritamobilfinal_${String(i).padStart(3, '0')}.jpg`
     } : {
         count: 124,
         path: (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
     };
-
-    const bgImage = new Image();
-    if (IS_MOBILE) bgImage.src = 'images/lokal_mobile.jpg';
-
-    // Off-screen Canvas für Chroma Keying (nur Mobile)
-    const offCanvas = document.createElement('canvas');
-    const offCtx = offCanvas.getContext('2d', { willReadFrequently: true });
 
     const canvas = document.getElementById('heroCanvas');
     const ctx = canvas.getContext('2d');
@@ -56,41 +49,17 @@
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Hintergrund zeichnen (nur Mobile)
-        if (IS_MOBILE && bgImage.complete) {
-            const bgScale = Math.max(canvas.width / bgImage.width, canvas.height / bgImage.height);
-            const bgX = (canvas.width - bgImage.width * bgScale) / 2;
-            const bgY = (canvas.height - bgImage.height * bgScale) / 2;
-            ctx.drawImage(bgImage, bgX, bgY, bgImage.width * bgScale, bgImage.height * bgScale);
-        }
-
+        // Vollbild-Zoom (Cover-Modus) + dezenter Extra-Zoom für Mobile
         let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-        if (IS_MOBILE) scale *= 1.4; // Zoom beibehalten
+        
+        if (IS_MOBILE) {
+            scale *= 1.4; // Pizza noch ein Stück näher ran
+        }
 
         const x = (canvas.width - img.width * scale) / 2;
         const y = (canvas.height - img.height * scale) * 0.5;
-
-        if (IS_MOBILE) {
-            // --- CHROMA KEYING LOGIC ---
-            offCanvas.width = img.width;
-            offCanvas.height = img.height;
-            offCtx.drawImage(img, 0, 0);
-            
-            const imgData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height);
-            const data = imgData.data;
-            
-            for (let i = 0; i < data.length; i += 4) {
-                const r = data[i], g = data[i+1], b = data[i+2];
-                // Wenn Pixel "grün genug" ist -> transparent machen
-                if (g > 80 && g > r * 1.1 && g > b * 1.1) {
-                    data[i+3] = 0;
-                }
-            }
-            offCtx.putImageData(imgData, 0, 0);
-            ctx.drawImage(offCanvas, x, y, img.width * scale, img.height * scale);
-        } else {
-            ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
-        }
+        
+        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
     }
 
 
