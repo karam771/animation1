@@ -53,7 +53,7 @@
         let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
         
         if (IS_MOBILE) {
-            scale *= 1.25; // Pizza etwas näher ran, damit weniger Schwarz sichtbar ist
+            scale *= 1.4; // Pizza noch ein Stück näher ran
         }
 
         const x = (canvas.width - img.width * scale) / 2;
