@@ -186,16 +186,34 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 [data-animate="pop"]{transform:scale(0.8)}
 [data-animate].animated{opacity:1;transform:translate(0) scale(1)}
 
-/* ======= OVERLAYS ======= */
-.image-overlay-text {
-    position: absolute;
-    bottom: 3rem;
-    left: 3rem;
+/* -- Parallax Interior Section -- */
+.section-parallax-interior {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/interior-real.jpg') center center / cover no-repeat;
+    background-attachment: fixed;
+}
+@media (max-width: 768px) {
+    .section-parallax-interior {
+        background-attachment: scroll; /* Performance auf Mobile */
+        min-height: 50vh;
+    }
+}
+.parallax-content {
+    max-width: 800px;
+    z-index: 2;
+}
+.parallax-content h2 {
+    margin-bottom: 0;
     color: #fff;
-    font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 4vw, 3rem);
-    font-weight: 500;
-    line-height: 1.1;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-    pointer-events: none;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.image-overlay-text {
+    display: none; /* Nicht mehr benötigt */
 }
