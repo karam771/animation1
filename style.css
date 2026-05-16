@@ -93,8 +93,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color: red; /* Debug */
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('desktop_bg.jpg') center center / cover no-repeat;
+        background: url('desktop_bg.jpg') center center / cover no-repeat !important;
         z-index: 0;
         margin-bottom: -100vh;
     }
