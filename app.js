@@ -49,10 +49,12 @@
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Vollbild-Zoom (Cover-Modus)
-        // Da wir für Mobile nun eigene Hochformat-Bilder haben, 
-        // passt "Cover" perfekt ohne Qualitätsverlust.
-        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+        // Vollbild-Zoom (Cover-Modus) + dezenter Extra-Zoom für Mobile
+        let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+        
+        if (IS_MOBILE) {
+            scale *= 1.25; // Pizza etwas näher ran, damit weniger Schwarz sichtbar ist
+        }
 
         const x = (canvas.width - img.width * scale) / 2;
         const y = (canvas.height - img.height * scale) * 0.5;
