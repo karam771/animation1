@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="style.css?v=1.0.7" />
+    <link rel="stylesheet" href="style.css?v=1.0.8" />
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -79,14 +79,24 @@
         </div>
     </section>
 
-    <!-- SECTION: Interior Image Mobile (Original) -->
-    <section class="section section-interior mobile-only" style="padding-top: 0; padding-bottom: 4rem;">
-        <div class="container-lg">
-            <div data-animate="fade-up" style="border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative;" id="interior-box">
-                <img src="images/interior-real.jpg" alt="Pizzeria Antalya Interior" style="width: 100%; height: auto; display: block; object-fit: cover; max-height: 70vh;" id="interior-img" />
-                <div class="image-overlay-text">Ein Stück Türkei,<br>mitten in Niedersachsen</div>
-            </div>
+    <!-- SECTION: Interior Image Mobile Integrated -->
+    <section class="section-interior-integrated mobile-only">
+        <div class="interior-blend-top"></div>
+        <div class="interior-grid">
+            <a href="tel:054428045815" class="interior-link">
+                <img src="images/mobile-interior-1.jpg" alt="Jetzt bestellen" class="interior-grid-img" />
+                <div class="interior-link-overlay">
+                    <span class="interior-link-text">Jetzt bestellen</span>
+                </div>
+            </a>
+            <a href="galerie.html" class="interior-link">
+                <img src="images/mobile-interior-2.jpg" alt="Galerie" class="interior-grid-img" />
+                <div class="interior-link-overlay">
+                    <span class="interior-link-text">Galerie</span>
+                </div>
+            </a>
         </div>
+        <div class="interior-blend-bottom"></div>
     </section>
 
     <!-- SECTION: Interior Image Integrated (Desktop Only) -->
