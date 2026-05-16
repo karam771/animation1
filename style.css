@@ -186,24 +186,41 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 [data-animate="pop"]{transform:scale(0.8)}
 [data-animate].animated{opacity:1;transform:translate(0) scale(1)}
 
-/* -- Parallax Interior Section -- */
+/* ======= OVERLAYS ======= */
+.image-overlay-text {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    color: #fff;
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+    pointer-events: none;
+}
+
+/* -- Desktop vs Mobile Visibility -- */
+.section-mobile-only { display: none; }
+.section-desktop-only { display: block; }
+
+@media (max-width: 768px) {
+    .section-mobile-only { display: block; }
+    .section-desktop-only { display: none; }
+}
+
+/* -- Parallax Interior (NUR MOBILE) -- */
 .section-parallax-interior {
     position: relative;
-    min-height: 70vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/interior-real.jpg') center center / cover no-repeat;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/interior-new.jpg') center center / cover no-repeat;
 }
-@media (max-width: 768px) {
-    .section-parallax-interior {
-        background-attachment: scroll;
-        min-height: 50vh;
-    }
-}
+
 .parallax-content {
     max-width: 800px;
     z-index: 2;
@@ -212,8 +229,4 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
     margin-bottom: 0;
     color: #fff;
     text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.image-overlay-text {
-    display: none; /* Nicht mehr benötigt */
 }
