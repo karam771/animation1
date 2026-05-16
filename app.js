@@ -12,8 +12,8 @@
     // ============ Frame Sequence Config ============
     const IS_MOBILE = window.innerWidth <= 768;
     const CONFIG = IS_MOBILE ? {
-        count: 127,
-        path: (i) => `frames_mobile_transparent/margheritamobilfinal_${String(i).padStart(3, '0')}.webp`
+        count: 64,
+        path: (i) => `frames_mobile_transparent/mobile_frame_${String(i).padStart(3, '0')}.webp`
     } : {
         count: 124,
         path: (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
@@ -72,7 +72,13 @@
             const img = new Image();
             img.onload = () => { 
                 loadedCount++; 
-                if (i === 1) renderFrame(0);
+                if (i === 1) {
+                    console.log("Erster Frame geladen!");
+                    renderFrame(0);
+                }
+                if (loadedCount % 20 === 0) {
+                    console.log(`Lade-Fortschritt: ${loadedCount}/${CONFIG.count}`);
+                }
             };
             img.src = CONFIG.path(i);
             images[i - 1] = img;
