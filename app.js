@@ -10,8 +10,14 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // ============ Frame Sequence Config ============
-    const FRAME_COUNT = 124;
-    const FRAME_PATH = (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`;
+    const IS_MOBILE = window.innerHeight > window.innerWidth;
+    const CONFIG = IS_MOBILE ? {
+        count: 127,
+        path: (i) => `frames_mobile/margheritamobilfinal_${String(i).padStart(3, '0')}.jpg`
+    } : {
+        count: 124,
+        path: (i) => `frames/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
+    };
 
     const canvas = document.getElementById('heroCanvas');
     const ctx = canvas.getContext('2d');
@@ -44,14 +50,10 @@
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Schärfe-Optimierung: Wir begrenzen den Zoom auf Mobile
-        const wScale = canvas.width / img.width;
-        const hScale = canvas.height / img.height;
-        let scale = Math.max(wScale, hScale);
-
-        if (window.innerHeight > window.innerWidth) {
-            scale = Math.min(scale, wScale * 1.6); // Zoom-Bremse für Schärfe
-        }
+        // Vollbild-Zoom (Cover-Modus)
+        // Da wir für Mobile nun eigene Hochformat-Bilder haben, 
+        // passt "Cover" perfekt ohne Qualitätsverlust.
+        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
 
         const x = (canvas.width - img.width * scale) / 2;
         const y = (canvas.height - img.height * scale) * 0.5;
@@ -63,13 +65,13 @@
 
     // ============ Load Frames ============
     function loadFrames() {
-        for (let i = 1; i <= FRAME_COUNT; i++) {
+        for (let i = 1; i <= CONFIG.count; i++) {
             const img = new Image();
             img.onload = () => { 
                 loadedCount++; 
-                if (i === 1) renderFrame(0); // Ersten Frame sofort zeichnen, sobald da
+                if (i === 1) renderFrame(0);
             };
-            img.src = FRAME_PATH(i);
+            img.src = CONFIG.path(i);
             images[i - 1] = img;
         }
     }
@@ -82,7 +84,7 @@
 
         // Frame sequence on scroll
         gsap.to(frameState, {
-            currentIndex: FRAME_COUNT - 1,
+            currentIndex: CONFIG.count - 1,
             snap: 'currentIndex',
             ease: 'none',
             scrollTrigger: {
