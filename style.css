@@ -186,22 +186,19 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 [data-animate="pop"]{transform:scale(0.8)}
 [data-animate].animated{opacity:1;transform:translate(0) scale(1)}
 
-/* -- Parallax Interior Section -- */
+/* -- Fließender Übergang -- */
+.section-handwerk, 
 .section-parallax-interior {
-    position: relative;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/interior-real.jpg') center center / cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/interior-new.jpg') center center / cover no-repeat;
     background-attachment: fixed;
+    position: relative;
+    border: none;
 }
+
 @media (max-width: 768px) {
+    .section-handwerk, 
     .section-parallax-interior {
-        background-attachment: scroll; /* Performance auf Mobile */
-        min-height: 50vh;
+        background-attachment: scroll;
     }
 }
 .parallax-content {
