@@ -55,7 +55,7 @@
         let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
         
         if (IS_MOBILE) {
-            scale *= 1.4; // Pizza noch ein Stück näher ran
+            scale *= 1.15; // Pizza etwas weiter rausgezoomt
         }
 
         const x = (canvas.width - img.width * scale) / 2;
