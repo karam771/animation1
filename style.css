@@ -215,6 +215,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .interior-grid {
     position: relative;
     width: 100%;
+    aspect-ratio: 3 / 2; /* Erzwingt gleiches Verhältnis für beide Bilder */
     display: grid;
     grid-template-columns: 1fr 1fr;
     z-index: 0;
@@ -222,9 +223,9 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 }
 .interior-grid-img {
     width: 100%;
-    height: auto; /* Volle Höhe des Fotos zeigen */
+    height: 100%; /* Füllt die Grid-Zelle vollständig aus */
     display: block;
-    object-fit: cover;
+    object-fit: cover; /* Schneidet das längere Bild (rechts) automatisch unten ab */
     opacity: 0.85;
 }
 @media (max-width: 768px) {
