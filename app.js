@@ -27,14 +27,8 @@
     let loadedCount = 0;
     const frameState = { currentIndex: 0 };
 
-    let lastWidth = window.innerWidth;
-
     // ============ Canvas Sizing (Retina Ready) ============
     function resizeCanvas() {
-        // Auf Mobile: Resize nur bei Breitenänderung (z.B. Orientierung)
-        if (IS_MOBILE && window.innerWidth === lastWidth) return;
-        lastWidth = window.innerWidth;
-
         const dpr = window.devicePixelRatio || 1;
         
         // CSS display size
