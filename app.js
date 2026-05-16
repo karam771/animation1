@@ -47,8 +47,7 @@
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
         
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // Vollbild-Zoom (Cover-Modus)
         // Da wir für Mobile nun eigene Hochformat-Bilder haben, 

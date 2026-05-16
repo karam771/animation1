@@ -64,11 +64,11 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 @media(max-width:768px){.nav-links{display:none}.nav-burger{display:flex}}
 
 /* ======= HERO ======= */
-.hero-section{position:relative;width:100%;height:500vh;background:#000}
+.hero-section{position:relative;width:100%;height:500vh;background:var(--bg)}
 @media (max-width: 768px) {
-    .hero-section { height: 350vh; } /* Kürzerer Scrollweg auf Mobile */
+    .hero-section { height: 200vh; background: var(--bg); } /* Deutlich kürzerer Weg */
 }
-.hero-canvas{position:sticky;top:0;width:100%;height:100vh;z-index:1;image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; backface-visibility: hidden; background: #000;}
+.hero-canvas{position:sticky;top:0;width:100%;height:100vh;z-index:1;image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; backface-visibility: hidden; background: transparent;}
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
 .hero-content{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;opacity:0;z-index:3;pointer-events:none}
 .hero-tagline{font-size:.8rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.5rem}
