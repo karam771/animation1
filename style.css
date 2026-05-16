@@ -200,42 +200,6 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
     pointer-events: none;
 }
 
-/* -- Desktop vs Mobile Visibility -- */
-.section-mobile-only { display: none !important; }
-.section-desktop-only { display: block !important; }
-
-@media (max-width: 768px) {
-    .section-mobile-only { display: block !important; }
-    .section-desktop-only { display: none !important; }
-}
-
-/* -- Parallax Interior (NUR MOBILE) -- */
-@media (max-width: 768px) {
-    .section-parallax-interior {
-        position: relative;
-        min-height: 50vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 4rem 2rem;
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/interior-new.jpg') center center / cover no-repeat;
-    }
-    .parallax-content {
-        max-width: 800px;
-        z-index: 2;
-    }
-    .parallax-content h2 {
-        margin-bottom: 0;
-        color: #fff;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-}
-
-/* -- Desktop Original Restore -- */
-.section-handwerk {
-    background: transparent;
-}
-.section-interior {
-    background: transparent;
-}
+/* -- Reset all experiments -- */
+.section-handwerk { background: transparent; }
+.section-interior { background: transparent; }
