@@ -156,6 +156,11 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 }
 
 /* -- Frische Zutaten -- */
+.section-frische { padding: 4rem 0; }
+@media (max-width: 768px) {
+    .section-bestseller { padding-bottom: 2rem; } /* Abstand nach den Bestellern verringert */
+    .section-frische { padding-top: 2rem; } /* Abstand vor Frische verringert */
+}
 .frische-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .frische-img{border-radius:var(--radius);width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 20px 40px rgba(0,0,0,.3)}
 @media(max-width:768px){.frische-grid{grid-template-columns:1fr}}
