@@ -67,7 +67,7 @@ button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
 .hero-section{position:relative;width:100%;height:500vh;background:var(--bg)}
 @media (max-width: 768px) {
     .hero-section { 
-        height: 200vh; 
+        height: 400vh; 
         background: transparent; 
     }
     .hero-bg-mobile {
